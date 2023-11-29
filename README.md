@@ -1,15 +1,4 @@
 ﻿# My Resume
-The video that helped.
-
-> https://www.youtube.com/watch?v=NiCZSdWucZE
-
-> This is a simple website hosted in AWS.
- 
-> ![Alt text](image.png)
-
-> Pricing
-
-> ![Alt text](image-1.png)
 
 ## Steps
 
