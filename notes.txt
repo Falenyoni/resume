@@ -4,3 +4,10 @@ To Finish up
 https://www.youtube.com/watch?v=2RaiuIeMC-k
 
 https://github.com/CodeItDownYt/React-Portfolio-yt/tree/main
+
+## For Images
+https://www.pexels.com/photo/brown-wooden-gavel-on-brown-wooden-table-6077326/
+
+
+### Dockerise vite project
+https://www.webdevolution.com/blog/how-to-use-docker-with-react-and-vite
