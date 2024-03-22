@@ -5,295 +5,448 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
-    <main class="main-content">
-      <section class="left-section">
-        <div class="left-content">
-          <div class="profile">
-            <img src="assets/headshot.png" alt="" />
-            <h2 class="name">Bongani Nyoni</h2>
-            <p class="career">Software Engineer</p>
-          </div>
-          <div class="contact-info">
-            <h3 class="main-title">Contact Info</h3>
-            <ul>
-              <li>
-                <i class="fa fa-phone"></i>
-                +27 672 588 222
-              </li>
-              <li>
-                <i class="fa fa-envelope"></i>
-                b.nyoni1101@gmail.com
-              </li>
-              <li>
-                <i class="fa fa-globe"></i>
-                www.nyonibongani.com
-              </li>
-              <li>
-                <i class="fa fa-facebook"></i>
-                www.facebook.com
-              </li>
-              <li>
-                <i class="fa fa-instagram"></i>
-                @falenyoni
-              </li>
-              <li>
-                <i class="fa fa-map-marker"></i>
-                Cape Town
-              </li>
-            </ul>
-          </div>
-          <div class="skills-section">
-            <h3 class="main-title">Skills</h3>
-            <ul>
-              <li>
-                <p class="skill-title">C#</p>
-                <div class="progress-bar">
-                  <div class="progress cs-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Java</p>
-                <div class="progress-bar">
-                  <div class="progress jv-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Javascript</p>
-                <div class="progress-bar">
-                  <div class="progress js-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Node Js</p>
-                <div class="progress-bar">
-                  <div class="progress nd-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Docker & K8s</p>
-                <div class="progress-bar">
-                  <div class="progress k8s-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Web</p>
-                <div class="progress-bar">
-                  <div class="progress fend-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Git</p>
-                <div class="progress-bar">
-                  <div class="progress git-progress"></div>
-                </div>
-              </li>
-              <li>
-                <p class="skill-title">Cloud(AWS)</p>
-                <div class="progress-bar">
-                  <div class="progress cl-progress"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="reference-section">
-            <h3 class="main-title">References</h3>
-            <div class="referee">
-              <h6 class="sub-title">Nigel Nyoni</h6>
-              <p class="sub-para">IT Manager</p>
-              <ul>
-                <li>
-                  <i class="fa fa-phone"></i>
-                  +27 672 588 222
-                </li>
-                <li>
-                  <i class="fa fa-envelope"></i>
-                  b.nyoni1101@gmail.com
-                </li>
-              </ul>
-            </div>
-            <div class="referee">
-              <h6 class="sub-title">Tafadzwa Joseph Dube</h6>
-              <p class="sub-para">Senior Developer</p>
-              <ul>
-                <li>
-                  <i class="fa fa-phone"></i>
-                  +27 672 588 222
-                </li>
-                <li>
-                  <i class="fa fa-envelope"></i>
-                  b.nyoni1101@gmail.com
-                </li>
-              </ul>
-            </div>
-
-            <div class="referee">
-              <h6 class="sub-title">Scott Kehan</h6>
-              <p class="sub-para">Manager</p>
-              <ul>
-                <li>
-                  <i class="fa fa-phone"></i>
-                  +27 672 588 222
-                </li>
-                <li>
-                  <i class="fa fa-envelope"></i>
-                  b.nyoni1101@gmail.com
-                </li>
-              </ul>
-            </div>
-          </div>
+    <nav id="desktop-nav">
+      <div class="logo">Bongani Nyoni</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Bongani Nyoni</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </section>
-      <section class="right-section">
-        <div class="right-main-content">
-          <section class="about sect">
-            <h2 class="right-title">About Me</h2>
-            <p class="para">
-              Experienced full stack software developer with experience spawning
-              over 7+ years. I have a passion for developing innovative programs
-              that advance productivity and effectiveness of organizational
-              success. Well-versed in writing code and creating systems that are
-              dependable and user-friendly. Over the last 4 years I have
-              specialized in the Financial Domain, focusing particularly on KYC,CLM, Credit Enablement and Loan Origination. Confident
-              communicator, analytical thinker, and innovative creator of
-              software systems.
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img
+          src="./assets/headshot.png"
+          alt="John Doe profile picture"
+          class="resume-headshot"
+        />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Bongani Nyoni</h1>
+        <p class="section__text__p2">Full Stack Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Bongani -Nyoni-CV.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/bonganinyoni/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/Falenyoni'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/headshot.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>7+ years <br />Full Stack Development</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>B.Sc. Honors Computer Science Degree</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Experienced full stack software developer with experience spawning over 7+ years. I have a passion for developing innovative programs that advance productivity and effectiveness of organizational success. Well-versed in writing code and creating systems that are dependable and user-friendly. Over the last 4 years I have specialized in the Financial Domain, focusing particularly on KYC, CLM, Credit Enablement and Loan Origination. Confident communicator, analytical thinker, and innovative creator of software systems. 
             </p>
-          </section>
-          <section class="experience sect">
-            <h2 class="right-title">Experience</h2>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">SoftIT Inc</h5>
-                <p class="para">2018 - 2020</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Junior Developer</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">NRz Pension Fund</h5>
-                <p class="para">2018 - 2020</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Junior Developer</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">Shearwater Adventures</h5>
-                <p class="para">2018 - 2020</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Junior Developer</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">Capitec Bank</h5>
-                <p class="para">2018 - 2020</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Junior Developer</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">Kaha</h5>
-                <p class="para">2018 - 2020</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Junior Developer</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="education sect">
-            <h2 class="right-title">Education</h2>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">NUST</h5>
-                <p class="para">2009 - 2013</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">BSc Honors Computer Science</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">Mzilikazi High School</h5>
-                <p class="para">2007 - 2008</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">A'Level</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">Emakhandeni Secondary</h5>
-                <p class="para">2003 - 2006</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">O'Level</h5>
-                  <p class="para"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quisquam molestiae vitae nisi consequuntur, temporibus qui architecto. Reprehenderit inventore iste assumenda temporibus obcaecati tempora at. Aspernatur maxime laboriosam odit earum?</p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="awards sect">
-            <div class="timeline">
-              <div class="left-tl-content">
-                <h5 class="tl-title">AWS Solutions Architect Associate</h5>
-                <p class="para">November 2021</p>
-              </div>
-              <div class="right-tl-content">
-                <div class="tl-content">
-                  <h5 class="tl-title-2">Solutions Architect</h5>
-                  <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae 
-                    voluptatem deleniti, 
-                    laboriosam odio nobis quae fugit facilis quo.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>SASS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Tailwind CSS</h3>
+                  <p>Beginner</p>
+                </div>
+              </article>            
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Material UI</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Web Frameworks</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>React</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Angular</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>ASP.NET MVC</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>ASP.NET CORE</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>NextJs</h3>
+                  <p>Beginner</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Spring Boot</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Programing Languages</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>C#</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Java</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript and TypeScript</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>ELK Stack</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>SQL</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Other Technologies</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Kafka, AMQ</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Apache Camel</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Docker & K8s</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CI/CD</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Cloud(AWS, Azure)</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contacts'"
+      />
+    </section>
+    
+
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p>
+            <a href="mailto:b.nyoni1101@gmail.com">b.nyoni1101@gmail.com</a>
+          </p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p>
+            <a href="https://www.linkedin.com/in/bonganinyoni/">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 Bongani Nyoni. All Rights Reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
