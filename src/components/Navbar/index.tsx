@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className="w-full h-[60px] fixed top-4 left-0 flex z-50">
       <div className="w-full md:px-[235px] px-[23px] flex items-center justify-between">
         <div 
-        className="text-orange-400 font-bold text-[28px] cursor-pointer md:ml-[12px]"
+        className="text-orange-400 font-bold text-[28px] cursor-pointermd:ml-[12px]"
         onClick={() => navigate('/')}
         >
           Bongani <span className='text-orange-200'> Blog</span>
