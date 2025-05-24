@@ -15,6 +15,7 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -30,6 +31,7 @@
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#blog" onclick="toggleMenu()">Blog</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
@@ -404,7 +406,61 @@
         src="./assets/arrow.png"
         alt="Arrow icon"
         class="icon arrow"
-        onclick="location.href='./#contacts'"
+        onclick="location.href='./#blog'"
+      />
+    </section>
+    <section id="blog">
+      <p class="section__text__p1">Read My Latest</p>
+      <h1 class="title">Blog Posts</h1>
+      <div class="blog-container">
+        <article class="blog-post">
+          <div class="blog-img-container">
+            <img src="./assets/image-1.png" alt="Blog post image" class="blog-img" />
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">May 20, 2025</span>
+            <h2 class="blog-title">The Future of Full Stack Development</h2>
+            <p class="blog-excerpt">
+              Exploring the emerging trends and technologies that are shaping the future of full stack development, including AI integration, serverless architectures, and more.
+            </p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </article>
+        <article class="blog-post">
+          <div class="blog-img-container">
+            <img src="./assets/image.png" alt="Blog post image" class="blog-img" />
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">April 15, 2025</span>
+            <h2 class="blog-title">Mastering Microservices Architecture</h2>
+            <p class="blog-excerpt">
+              A deep dive into microservices architecture, best practices for implementation, and lessons learned from real-world projects in the financial domain.
+            </p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </article>
+        <article class="blog-post">
+          <div class="blog-img-container">
+            <img src="./assets/project-1.png" alt="Blog post image" class="blog-img" />
+          </div>
+          <div class="blog-content">
+            <span class="blog-date">March 5, 2025</span>
+            <h2 class="blog-title">Optimizing Frontend Performance</h2>
+            <p class="blog-excerpt">
+              Tips and techniques for improving frontend performance, from code splitting to lazy loading, and how to measure and track improvements effectively.
+            </p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </article>
+      </div>
+      <div class="blog-cta">
+        <a href="#" class="btn btn-color-2">View All Posts</a>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
       />
     </section>
     
@@ -437,15 +493,15 @@
     </section>
     <footer>
       <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
+        <div class="nav-links-container">          <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2023 Bongani Nyoni. All Rights Reserved.</p>
+      <p>Copyright &#169; 2025 Bongani Nyoni. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
   </body>
