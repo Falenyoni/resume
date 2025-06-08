@@ -2,13 +2,15 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content="Bongani Nyoni - Full Stack Developer Blog and Portfolio" />
-    <title>Bongani Nyoni - Full Stack Developer</title>    <link rel="stylesheet" href="style.css" />
+    <title>Bongani Nyoni - Full Stack Developer</title>
+    <link rel="icon" href="./assets/headshot.png" type="image/png" sizes="32x32" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" /><link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- EmailJS will be loaded at the bottom of the page for better performance -->
   </head>
   <body>
     <nav id="desktop-nav">
@@ -21,13 +23,39 @@
             <li><a href="#profile">About</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
-          </ul>
-          <button id="theme-toggle" class="theme-toggle">
+          </ul>          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
             <i class="fas fa-sun"></i>
             <i class="fas fa-moon"></i>
           </button>
         </div>
-      </div>    </nav>      <section id="profile">
+      </div>    </nav>
+    
+    <!-- Mobile Navigation -->
+    <nav id="hamburger-nav">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="./assets/headshot.png" alt="Bongani Nyoni" class="nav-profile-img" />
+          <span>Bongani Nyoni</span>
+        </a>
+      <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu(event)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div><div class="menu-links">            <ul>
+              <li><a href="#profile" onclick="handleMenuItemClick(event)">About</a></li>
+              <li><a href="#blog" onclick="handleMenuItemClick(event)">Blog</a></li>
+              <li><a href="#contact" onclick="handleMenuItemClick(event)">Contact</a></li>
+            </ul>            <button id="mobile-theme-toggle" class="theme-toggle" onclick="handleThemeToggleClick(event)">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <section id="profile">
       <div class="section-container combined-section">
         <div class="profile-content">          <h1>Hey, I'm Bongani Nyoni <span class="wave">👋</span></h1>
           
@@ -427,17 +455,17 @@
             <div class="contact-form-container">            <form id="contact-form" class="contact-form">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
               </div>
               
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required>
+                <input type="email" id="email" name="email" placeholder="Your email address" autocomplete="email" required>
               </div>
               
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject">
+                <input type="text" id="subject" name="subject" placeholder="Subject" autocomplete="off">
               </div>
               
               <div class="form-group full-width">
@@ -484,6 +512,10 @@
         </div>
       </div>
     </footer>
+    <button id="scroll-to-top" aria-label="Scroll to top">
+      <img src="./assets/arrow-up.svg" alt="Scroll to top" />
+    </button>    <!-- Load EmailJS before our script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
