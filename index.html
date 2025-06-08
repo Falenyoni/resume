@@ -1,132 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <meta name="description" content="Bongani Nyoni - Full Stack Developer Blog and Portfolio" />
+    <title>Bongani Nyoni - Full Stack Developer</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">Mr Bongani Nyoni</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Bongani Nyoni</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#blog" onclick="toggleMenu()">Blog</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img
-          src="./assets/headshot.png"
-          alt="John Doe profile picture"
-          class="resume-headshot"
-        />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Bongani Nyoni</h1>
-        <p class="section__text__p2">Full Stack Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Bongani -Nyoni-CV.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="./assets/headshot.png" alt="Bongani Nyoni" class="nav-profile-img" />
+          <span>Bongani Nyoni</span>
+        </a>
+        <div class="nav-right">          <ul class="nav-links">
+            <li><a href="#profile">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button id="theme-toggle" class="theme-toggle">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
           </button>
         </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/bonganinyoni/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Falenyoni'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/headshot.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
+      </div>    </nav>      <section id="profile">
+      <div class="section-container combined-section">
+        <div class="profile-content">          <h1>Hey, I'm Bongani Nyoni <span class="wave">👋</span></h1>
+          
+          <div class="profile-cards">
+            <div class="profile-card">
+              <div class="profile-card-icon">
+                <img src="./assets/experience.png" alt="Experience icon" />
+              </div>
               <h3>Experience</h3>
-              <p>7+ years <br />Full Stack Development</p>
+              <p>7+ years</p>
+              <p>Full Stack Development</p>
             </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
+            
+            <div class="profile-card">
+              <div class="profile-card-icon">
+                <img src="./assets/education.png" alt="Education icon" />
+              </div>
               <h3>Education</h3>
-              <p>B.Sc. Honors Computer Science Degree</p>
+              <p>B.Sc. Honors</p>
+              <p>Computer Science Degree</p>
             </div>
           </div>
-          <div class="text-container">
+          
+          <div class="profile-bio">
             <p>
-              Experienced full stack software developer with experience spawning over 7+ years. I have a passion for developing innovative programs that advance productivity and effectiveness of organizational success. Well-versed in writing code and creating systems that are dependable and user-friendly. Over the last 4 years I have specialized in the Financial Domain, focusing particularly on KYC, CLM, Credit Enablement and Loan Origination. Confident communicator, analytical thinker, and innovative creator of software systems. 
+              I'm a passionate Full Stack Developer with over 7 years of experience crafting robust web applications and solving complex technical challenges. I specialize in creating intuitive user experiences backed by scalable, high-performance systems.
+            </p>
+            <p>
+              Over the past 4 years, I've focused on the Financial Domain, building solutions for KYC, Credit Lifecycle Management, and Loan Origination systems. I take pride in writing clean, maintainable code and designing systems that are both dependable and user-friendly.
+            </p>
+            <p>
+              When I'm not coding, I write about web development best practices, software architecture patterns, and tech career growth. I'm always exploring emerging technologies and finding ways to apply them to solve real-world problems.
             </p>
           </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/Falenyoni" target="_blank" class="social-link">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank" class="social-link">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:b.nyoni1101@gmail.com" class="social-link">
+              <i class="far fa-envelope"></i>
+            </a>
+          </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
+    </section>    <section id="experience">
+      <div class="section-container">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+          <div class="experience-card">
             <h2 class="experience-sub-title">Frontend Development</h2>
             <div class="article-container">
               <article>
@@ -185,9 +139,8 @@
                 </div>
               </article>
             </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Web Frameworks</h2>
+          </div>          <div class="experience-card">
+            <h3 class="experience-title">Web Frameworks</h3>
             <div class="article-container">
               <article>
                 <img
@@ -257,9 +210,8 @@
               </article>
               </article>
             </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Programing Languages</h2>
+          </div>          <div class="experience-card">
+            <h3 class="experience-title">Programming Languages</h3>
             <div class="article-container">
               <article>
                 <img
@@ -328,9 +280,8 @@
                 </div>
               </article>
             </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Other Technologies</h2>
+          </div>          <div class="experience-card">
+            <h3 class="experience-title">Other Technologies</h3>
             <div class="article-container">
               <article>
                 <img
@@ -399,109 +350,141 @@
                 </div>
               </article>
             </div>
-          </div>
-        </div>
+          </div>        </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#blog'"
-      />
     </section>
     <section id="blog">
-      <p class="section__text__p1">Read My Latest</p>
-      <h1 class="title">Blog Posts</h1>
-      <div class="blog-container">
-        <article class="blog-post">
-          <div class="blog-img-container">
-            <img src="./assets/image-1.png" alt="Blog post image" class="blog-img" />
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">May 20, 2025</span>
-            <h2 class="blog-title">The Future of Full Stack Development</h2>
-            <p class="blog-excerpt">
-              Exploring the emerging trends and technologies that are shaping the future of full stack development, including AI integration, serverless architectures, and more.
-            </p>
-            <a href="#" class="read-more-btn">Read More</a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-img-container">
-            <img src="./assets/image.png" alt="Blog post image" class="blog-img" />
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">April 15, 2025</span>
-            <h2 class="blog-title">Mastering Microservices Architecture</h2>
-            <p class="blog-excerpt">
-              A deep dive into microservices architecture, best practices for implementation, and lessons learned from real-world projects in the financial domain.
-            </p>
-            <a href="#" class="read-more-btn">Read More</a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-img-container">
-            <img src="./assets/project-1.png" alt="Blog post image" class="blog-img" />
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">March 5, 2025</span>
-            <h2 class="blog-title">Optimizing Frontend Performance</h2>
-            <p class="blog-excerpt">
-              Tips and techniques for improving frontend performance, from code splitting to lazy loading, and how to measure and track improvements effectively.
-            </p>
-            <a href="#" class="read-more-btn">Read More</a>
-          </div>
-        </article>
-      </div>
-      <div class="blog-cta">
-        <a href="#" class="btn btn-color-2">View All Posts</a>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    
-
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p>
-            <a href="mailto:b.nyoni1101@gmail.com">b.nyoni1101@gmail.com</a>
-          </p>
+      <div class="section-container">
+        <h2 class="section-title">Latest Posts</h2>        <div class="posts-grid">
+          <article class="post-card featured">
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="post-date">June 8, 2023</span>
+                <span class="post-category">AWS</span>
+              </div>
+              <h3 class="post-title">
+                <a href="https://medium.com/@falenyoni/setting-up-a-dual-stack-vpc-using-aws-cdk-in-c-fb2c3e7cd3ed" target="_blank">Setting Up a Dual-Stack VPC Using AWS CDK in C#</a>
+              </h3>
+              <p class="post-excerpt">
+                A step-by-step guide to setting up a dual-stack (IPv4 and IPv6) Virtual Private Cloud using AWS CDK with C#. Learn how to configure subnets, route tables, and internet gateways for both IPv4 and IPv6 connectivity.
+              </p>
+              <div class="post-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">CDK</span>
+                <span class="tag">C#</span>
+                <span class="tag">VPC</span>
+                <span class="tag">IPv6</span>
+              </div>
+            </div>
+          </article>        </div>
+        <div class="section-footer">
+          <a href="https://medium.com/@falenyoni" target="_blank" class="view-all-link">View on Medium <i class="fab fa-medium"></i></a>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p>
-            <a href="https://www.linkedin.com/in/bonganinyoni/">LinkedIn</a>
-          </p>
+      </div>
+    </section>
+        <section id="contact">
+      <div class="section-container">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact-container">
+          <div class="contact-info">
+            <p class="contact-text">
+              Have a question or want to work together? Feel free to reach out using the form or connect with me directly through any of these channels:
+            </p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email</h3>
+                  <a href="mailto:b.nyoni1101@gmail.com">b.nyoni1101@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>LinkedIn</h3>
+                  <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank">linkedin.com/in/bonganinyoni</a>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>GitHub</h3>
+                  <a href="https://github.com/Falenyoni" target="_blank">github.com/Falenyoni</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-container">
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+              </div>
+              
+              <div class="form-group full-width form-message" id="form-message">
+                <!-- Form submission messages will appear here -->
+              </div>
+              
+              <button type="submit" class="submit-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
     <footer>
-      <nav>
-        <div class="nav-links-container">          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <p class="copyright">© 2025 Bongani Nyoni. All rights reserved.</p>
+          </div>
+          <div class="footer-right">            <div class="footer-links">
+              <a href="#profile">About</a>
+              <a href="#blog">Blog</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+              <a href="https://github.com/Falenyoni" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="mailto:b.nyoni1101@gmail.com">
+                <i class="far fa-envelope"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      </nav>
-      <p>Copyright &#169; 2025 Bongani Nyoni. All Rights Reserved.</p>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>
