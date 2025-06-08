@@ -56,11 +56,19 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
   }
 });
 
-// Initialize theme when the page loads
+// Initialize theme and services when the page loads
 document.addEventListener("DOMContentLoaded", () => {
   initializeTheme();
+  initEmailJS();
   setupContactForm();
 });
+
+// Initialize EmailJS service
+function initEmailJS() {
+  // Public Key from EmailJS Account > API Keys
+  // This is different from your service ID
+  emailjs.init("S-C4CkPysSARSZqIc"); // Replace with your actual public key if different
+}
 
 // Contact Form Functionality
 function setupContactForm() {
@@ -94,9 +102,20 @@ function setupContactForm() {
       if (!emailRegex.test(formDataObject.email)) {
         throw new Error("Please enter a valid email address.");
       }
-      
-      // Simulate API call (replace this with your actual form submission code)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+        // Prepare email parameters
+      const emailParams = {        
+        from_name: formDataObject.name,
+        from_email: formDataObject.email,
+        subject: formDataObject.subject || "Portfolio Contact Form",
+        message: formDataObject.message,
+      };      // Send email using EmailJS
+      try {
+        const response = await emailjs.send("service_v2nktbe", "template_gmbr202", emailParams);
+        console.log("Email sent successfully:", response);
+      } catch (emailError) {
+        console.error("EmailJS error:", emailError);
+        throw new Error("Failed to send email. Please try again later or contact directly via email.");
+      }
       
       // Success state
       contactForm.reset();
