@@ -45,3 +45,51 @@
 1. Block access through the S3 website end point
 2. Create CI/CD For the project
 3. Create Terraform project uploading files to s3 (look into the pros and cons for this when its a team)
+
+## Summary of Portfolio Website Enhancements
+
+### 1. Added CV Download Functionality
+
+- Added CV download button in social links section with animated hover effects
+- Implemented download links in both desktop and mobile navigation menus
+- Added CV link in the footer for easy access
+- Ensured mobile-friendly design with responsive styling
+
+### 2. Added a New Blog Post on Modern CSS Features
+
+Created `modern-css-features.md` with comprehensive content about modern CSS features including:
+- CSS Custom Properties (Variables)
+- CSS Grid Layout
+- Logical Properties
+- Container Queries
+- Modern Selectors
+- Aspect Ratio
+
+### 2. Added Reading Time Estimation
+
+- Implemented a function to calculate estimated reading time for blog posts
+- Added reading time indicators to both blog post listings and individual posts
+- Used a clean, icon-based display format for reading time
+
+### 3. Enhanced Code Block Styling
+
+- Added language indicators to code blocks for better readability
+- Improved code block styling with better syntax highlighting
+- Added responsive design adjustments for code blocks on mobile devices
+
+### 4. Added Dynamic Copyright Year
+
+- Made the copyright year in the footer dynamic instead of static
+- Added a function to automatically update the year without manual changes
+
+### 5. Improved Blog Post Navigation
+
+- Added a share button to blog posts
+- Implemented sharing functionality using the Web Share API with clipboard fallback
+- Enhanced styling for blog post actions
+
+### 6. Enhanced Mobile Responsiveness
+
+- Improved blog display on mobile devices
+- Added specific styling for tables and other elements on smaller screens
+- Added print styles for better printing of blog posts

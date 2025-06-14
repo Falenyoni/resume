@@ -1,0 +1,180 @@
+/* Enhanced link behavior and interactive elements */
+
+/* Base link styles */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: var(--accent);
+}
+
+/* Links with animated underline */
+.animated-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.animated-link:hover::after,
+.animated-link:focus::after {
+  width: 100%;
+}
+
+/* Button states */
+button, .btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.2);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(var(--accent-rgb), 0.1);
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background-color: var(--accent);
+  color: white;
+  z-index: 1001;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Social links enhanced hover effects */
+.social-link {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.social-link:hover::before {
+  transform: scale(1);
+  opacity: 0.1;
+}
+
+/* Navigation links with active indicators */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+  left: 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Ensure tap targets are at least 44px */
+  a, button, .btn, .nav-link, .social-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Use different hover effects that work better on touch */
+  .social-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .btn:hover {
+    transform: translateY(0);
+  }
+  
+  /* Touch-friendly active state */
+  .touch-active {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "posts": [
+    "why-markdown-blog-posts-wont-work-in-s3.md",
+    "modern-css-features.md",
+    "setting-up-dual-stack-vpc.md",
+    "react-18-features.md"
+  ]
+}

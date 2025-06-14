@@ -2,416 +2,624 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
     <meta name="description" content="Bongani Nyoni - Full Stack Developer Blog and Portfolio" />
     <title>Bongani Nyoni - Full Stack Developer</title>
     <link rel="icon" href="./assets/headshot.png" type="image/png" sizes="32x32" />
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" /><link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- EmailJS will be loaded at the bottom of the page for better performance -->
+    <link rel="stylesheet" href="assets/css/blog.css" />
+    <link rel="stylesheet" href="style-updates.css" />    <link rel="stylesheet" href="assets/css/hero-enhancements.css" />
+    <link rel="stylesheet" href="assets/css/modern-nav.css" />
+    <link rel="stylesheet" href="assets/css/section-transitions.css" />    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/enhanced-responsive.css" />    <link rel="stylesheet" href="assets/css/enhanced-transitions.css" />
+    <link rel="stylesheet" href="assets/css/enhanced-mobile-nav.css" />    <link rel="stylesheet" href="assets/css/interactive-elements.css" />
+    <link rel="stylesheet" href="assets/css/footer-enhancements.css" />
+    <link rel="stylesheet" href="assets/css/footer-fixes.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /><!-- EmailJS will be loaded at the bottom of the page for better performance -->
+    <meta name="description" content="Bongani Nyoni - Full Stack Developer with experience in building modern web applications" />
   </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <img src="./assets/headshot.png" alt="Bongani Nyoni" class="nav-profile-img" />
-          <span>Bongani Nyoni</span>
-        </a>
-        <div class="nav-right">          <ul class="nav-links">
-            <li><a href="#profile">About</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-          </button>
-        </div>
-      </div>    </nav>
-    
-    <!-- Mobile Navigation -->
-    <nav id="hamburger-nav">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <img src="./assets/headshot.png" alt="Bongani Nyoni" class="nav-profile-img" />
-          <span>Bongani Nyoni</span>
-        </a>
-      <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu(event)">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div><div class="menu-links">            <ul>
-              <li><a href="#profile" onclick="handleMenuItemClick(event)">About</a></li>
-              <li><a href="#blog" onclick="handleMenuItemClick(event)">Blog</a></li>
-              <li><a href="#contact" onclick="handleMenuItemClick(event)">Contact</a></li>
-            </ul>            <button id="mobile-theme-toggle" class="theme-toggle" onclick="handleThemeToggleClick(event)">
+  <body>    
+    <a href="#profile" class="skip-to-content">Skip to content</a>
+    <header class="main-header">
+      <nav id="desktop-nav">
+        <div class="nav-container">
+          <a href="#" class="nav-logo" aria-label="Go to homepage">
+            <div class="logo-container">
+              <img src="./assets/headshot.png" alt="" class="nav-profile-img" />
+              <div class="logo-text">
+                <span class="logo-name">Bongani Nyoni</span>
+                <span class="logo-title">Full Stack Developer</span>
+              </div>
+            </div>
+          </a>          <div class="nav-right">
+            <ul class="nav-links stagger-animation" role="menubar">
+              <li role="none"><a href="#profile" role="menuitem" class="nav-link animated-link"><span>About</span></a></li>
+              <li role="none"><a href="#experience" role="menuitem" class="nav-link animated-link"><span>Skills & Expertise</span></a></li>
+              <li role="none"><a href="#blog" role="menuitem" class="nav-link animated-link"><span>Blog</span></a></li>
+              <li role="none"><a href="#contact" role="menuitem" class="nav-link animated-link"><span>Contact</span></a></li>
+              <li role="none">
+                <a href="./assets/Bongani -Nyoni-CV.pdf" download role="menuitem" class="nav-link btn-download">
+                  <span>Download CV</span>
+                  <i class="fas fa-download"></i>
+                </a>
+              </li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
               <i class="fas fa-sun"></i>
               <i class="fas fa-moon"></i>
+              <span class="theme-toggle-text">Theme</span>
             </button>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     
-    <section id="profile">
-      <div class="section-container combined-section">
-        <div class="profile-content">          <h1>Hey, I'm Bongani Nyoni <span class="wave">👋</span></h1>
-          
-          <div class="profile-cards">
-            <div class="profile-card">
-              <div class="profile-card-icon">
-                <img src="./assets/experience.png" alt="Experience icon" />
+      <!-- Mobile Navigation -->
+      <nav id="hamburger-nav">
+        <div class="nav-container">
+          <a href="#" class="nav-logo">
+            <img src="./assets/headshot.png" alt="" class="nav-profile-img" />
+            <span class="logo-name">Bongani Nyoni</span>
+          </a>
+          <div class="hamburger-menu">
+            <button class="hamburger-button" onclick="toggleMenu(event)" aria-label="Toggle menu" aria-expanded="false">
+              <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-              <h3>Experience</h3>
-              <p>7+ years</p>
-              <p>Full Stack Development</p>
+            </button>            <div class="menu-links">
+              <ul role="menu">
+                <li role="none"><a href="#profile" onclick="handleMenuItemClick(event)" role="menuitem" class="animated-link">About</a></li>
+                <li role="none"><a href="#experience" onclick="handleMenuItemClick(event)" role="menuitem" class="animated-link">Skills & Expertise</a></li>
+                <li role="none"><a href="#blog" onclick="handleMenuItemClick(event)" role="menuitem" class="animated-link">Blog</a></li>
+                <li role="none"><a href="#contact" onclick="handleMenuItemClick(event)" role="menuitem" class="animated-link">Contact</a></li>
+                <li role="none"><a href="./assets/Bongani -Nyoni-CV.pdf" download onclick="handleMenuItemClick(event)" role="menuitem" class="mobile-download animated-link">
+                  <i class="fas fa-download"></i> Download CV
+                </a></li>
+              </ul>
+              <button id="mobile-theme-toggle" class="theme-toggle" onclick="handleThemeToggleClick(event)" aria-label="Toggle light/dark theme">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <span>Toggle Theme</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Navigation progress indicator -->
+      <div class="nav-progress-container">
+        <div class="nav-progress-bar" id="navProgressBar"></div>
+      </div>
+    </header>    <section id="profile" class="snap-section">
+      <div class="section-container hero-section section-reveal">
+        <div class="hero-background parallax-bg" data-speed="0.1">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        
+        <div class="hero-content">
+          <div class="hero-text stagger-animation">
+            <div class="hero-intro">
+              <span class="greeting">Hello, World! <span class="wave">👋</span></span>
+              <h1 class="hero-name">I'm Bongani Nyoni</h1>              <div class="hero-title">
+                <span class="title-prefix">Full Stack</span>
+                <span class="title-dynamic" id="dynamic-title">Developer</span>
+              </div>
+              <p class="hero-tagline">Turning <span class="highlight-text" id="changing-text">ideas</span> into reality</p>
             </div>
             
-            <div class="profile-card">
-              <div class="profile-card-icon">
-                <img src="./assets/education.png" alt="Education icon" />
-              </div>
-              <h3>Education</h3>
-              <p>B.Sc. Honors</p>
-              <p>Computer Science Degree</p>
+            <div class="hero-tags">
+              <span class="tag">React</span>
+              <span class="tag">C#</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">Java</span>
+            </div>
+            
+            <div class="profile-bio">
+              <p>
+                I'm a passionate Full Stack Developer with over <span id="bio-experience-years">10</span> years of experience crafting robust web applications and solving complex technical challenges. I specialize in creating intuitive user experiences backed by scalable, high-performance systems.
+              </p>
+              <p>
+                Over the past 4 years, I've focused on the Financial Domain, building solutions for KYC, Credit Lifecycle Management, and Loan Origination systems. I take pride in writing clean, maintainable code and designing systems that are both dependable and user-friendly.
+              </p>
+            </div>
+            
+            <div class="hero-cta">
+              <a href="#contact" class="cta-button primary">Get In Touch</a>
+              <a href="./assets/Bongani -Nyoni-CV.pdf" download class="cta-button secondary">Download CV</a>
             </div>
           </div>
-          
-          <div class="profile-bio">
-            <p>
-              I'm a passionate Full Stack Developer with over 7 years of experience crafting robust web applications and solving complex technical challenges. I specialize in creating intuitive user experiences backed by scalable, high-performance systems.
-            </p>
-            <p>
-              Over the past 4 years, I've focused on the Financial Domain, building solutions for KYC, Credit Lifecycle Management, and Loan Origination systems. I take pride in writing clean, maintainable code and designing systems that are both dependable and user-friendly.
-            </p>
-            <p>
-              When I'm not coding, I write about web development best practices, software architecture patterns, and tech career growth. I'm always exploring emerging technologies and finding ways to apply them to solve real-world problems.
-            </p>
-          </div>
-          
-          <div class="social-links">
-            <a href="https://github.com/Falenyoni" target="_blank" class="social-link">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank" class="social-link">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:b.nyoni1101@gmail.com" class="social-link">
-              <i class="far fa-envelope"></i>
-            </a>
+            <div class="hero-stats stagger-animation">
+            <div class="stat-cards">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>Experience</h3>
+                  <div class="stat-value" id="experience-years">7+</div>
+                  <p>Years as Full Stack Developer</p>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>Education</h3>
+                  <div class="stat-value">B.Sc.</div>
+                  <p>Honors in Computer Science</p>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>Projects</h3>
+                  <div class="stat-value">35+</div>
+                  <p>Completed Successfully</p>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-content">
+                  <h3>Industry</h3>
+                  <div class="stat-value">4+</div>
+                  <p>Years in Financial Tech</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <a href="https://github.com/Falenyoni" target="_blank" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="mailto:b.nyoni1101@gmail.com" class="social-link" aria-label="Email">
+                <i class="far fa-envelope"></i>
+              </a>
+              <a href="./assets/Bongani -Nyoni-CV.pdf" download class="social-link cv-download" aria-label="Download CV">
+                <i class="fas fa-file-download"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>    <section id="experience">
-      <div class="section-container">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-grid">
-          <div class="experience-card">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
+    </section><section id="experience" class="snap-section">
+      <div class="section-divider-skew"></div>
+      <div class="section-container section-reveal">
+        <h2 class="section-title">Skills & Expertise</h2>
+          <div class="skills-tabs stagger-animation">
+          <button class="skill-tab active" data-tab="frontend">
+            <i class="fas fa-code"></i>
+            <span>Frontend</span>
+          </button>
+          <button class="skill-tab" data-tab="backend">
+            <i class="fas fa-server"></i>
+            <span>Backend</span>
+          </button>
+          <button class="skill-tab" data-tab="devops">
+            <i class="fas fa-cloud"></i>
+            <span>DevOps</span>
+          </button>
+          <button class="skill-tab" data-tab="tools">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+          </button>
+        </div>
+        
+        <div class="skills-content">
+          <div class="tab-content active" id="frontend-content">
+            <div class="skills-grid">
+              <div class="skill-item" data-skill="HTML">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML</span>
+                  </div>
+                  <div class="skill-level">95%</div>
                 </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%;"></div>
                 </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SASS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tailwind CSS</h3>
-                  <p>Beginner</p>
-                </div>
-              </article>            
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Material UI</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>          <div class="experience-card">
-            <h3 class="experience-title">Web Frameworks</h3>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>React</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Angular</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>ASP.NET MVC</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>ASP.NET CORE</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>NextJs</h3>
-                  <p>Beginner</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Spring Boot</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              </article>
-            </div>
-          </div>          <div class="experience-card">
-            <h3 class="experience-title">Programming Languages</h3>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C#</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript and TypeScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>ELK Stack</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-            </div>
-          </div>          <div class="experience-card">
-            <h3 class="experience-title">Other Technologies</h3>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Kafka, AMQ</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Apache Camel</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Docker & K8s</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CI/CD</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Cloud(AWS, Azure)</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-            </div>
-          </div>        </div>
-      </div>
-    </section>
-    <section id="blog">
-      <div class="section-container">
-        <h2 class="section-title">Latest Posts</h2>        <div class="posts-grid">
-          <article class="post-card featured">
-            <div class="post-content">
-              <div class="post-meta">
-                <span class="post-date">June 8, 2023</span>
-                <span class="post-category">AWS</span>
               </div>
-              <h3 class="post-title">
-                <a href="https://medium.com/@falenyoni/setting-up-a-dual-stack-vpc-using-aws-cdk-in-c-fb2c3e7cd3ed" target="_blank">Setting Up a Dual-Stack VPC Using AWS CDK in C#</a>
-              </h3>
-              <p class="post-excerpt">
-                A step-by-step guide to setting up a dual-stack (IPv4 and IPv6) Virtual Private Cloud using AWS CDK with C#. Learn how to configure subnets, route tables, and internet gateways for both IPv4 and IPv6 connectivity.
-              </p>
-              <div class="post-tags">
-                <span class="tag">AWS</span>
-                <span class="tag">CDK</span>
-                <span class="tag">C#</span>
-                <span class="tag">VPC</span>
-                <span class="tag">IPv6</span>
+              
+              <div class="skill-item" data-skill="CSS">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS</span>
+                  </div>
+                  <div class="skill-level">90%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="JavaScript">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                  </div>
+                  <div class="skill-level">85%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="React">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                  </div>
+                  <div class="skill-level">88%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 88%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Angular">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-angular"></i>
+                    <span>Angular</span>
+                  </div>
+                  <div class="skill-level">80%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="SASS">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-sass"></i>
+                    <span>SASS</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Tailwind">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-css3"></i>
+                    <span>Tailwind CSS</span>
+                  </div>
+                  <div class="skill-level">65%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 65%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Material UI">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Material UI</span>
+                  </div>
+                  <div class="skill-level">70%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%;"></div>
+                </div>
               </div>
             </div>
-          </article>        </div>
+          </div>
+          
+          <div class="tab-content" id="backend-content">
+            <div class="skills-grid">
+              <div class="skill-item" data-skill="C#">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-hashtag"></i>
+                    <span>C#</span>
+                  </div>
+                  <div class="skill-level">95%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="ASP.NET Core">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-code"></i>
+                    <span>ASP.NET Core</span>
+                  </div>
+                  <div class="skill-level">90%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Java">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-java"></i>
+                    <span>Java</span>
+                  </div>
+                  <div class="skill-level">85%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Spring Boot">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-leaf"></i>
+                    <span>Spring Boot</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Python">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                  </div>
+                  <div class="skill-level">80%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="SQL">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                  </div>
+                  <div class="skill-level">90%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Node.js">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                  </div>
+                  <div class="skill-level">70%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="TypeScript">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-js"></i>
+                    <span>TypeScript</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="devops-content">
+            <div class="skills-grid">
+              <div class="skill-item" data-skill="Docker">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                  </div>
+                  <div class="skill-level">85%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Kubernetes">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-dharmachakra"></i>
+                    <span>Kubernetes</span>
+                  </div>
+                  <div class="skill-level">70%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="AWS">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Azure">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Azure</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="CI/CD">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-infinity"></i>
+                    <span>CI/CD</span>
+                  </div>
+                  <div class="skill-level">80%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Git">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                  </div>
+                  <div class="skill-level">95%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="tools-content">
+            <div class="skills-grid">
+              <div class="skill-item" data-skill="Kafka">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-stream"></i>
+                    <span>Kafka</span>
+                  </div>
+                  <div class="skill-level">75%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="ELK Stack">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-search"></i>
+                    <span>ELK Stack</span>
+                  </div>
+                  <div class="skill-level">70%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Apache Camel">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Apache Camel</span>
+                  </div>
+                  <div class="skill-level">85%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="VS Code">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-code"></i>
+                    <span>VS Code</span>
+                  </div>
+                  <div class="skill-level">95%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Jira">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fab fa-jira"></i>
+                    <span>Jira</span>
+                  </div>
+                  <div class="skill-level">85%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item" data-skill="Postman">
+                <div class="skill-info">
+                  <div class="skill-name">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Postman</span>
+                  </div>
+                  <div class="skill-level">90%</div>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    </section>
+    
+    <section id="blog" class="snap-section">
+      <div class="section-divider-skew"></div>
+      <div class="section-container section-reveal">
+        <h2 class="section-title">Latest Posts</h2>
+        <div class="posts-grid">
+          <!-- Blog posts will be loaded dynamically from Markdown files -->
+          <div class="loading-posts">Loading posts...</div>
+        </div>
         <div class="section-footer">
           <a href="https://medium.com/@falenyoni" target="_blank" class="view-all-link">View on Medium <i class="fab fa-medium"></i></a>
         </div>
       </div>
     </section>
-        <section id="contact">
-      <div class="section-container">
+    <section id="contact" class="snap-section">
+      <div class="section-divider-skew"></div>
+      <div class="section-container section-reveal">
         <h2 class="section-title">Get In Touch</h2>
         
         <div class="contact-container">
@@ -451,8 +659,7 @@
                 </div>
               </div>
             </div>
-          </div>
-            <div class="contact-form-container">            <form id="contact-form" class="contact-form">
+          </div>            <div class="contact-form-container">            <form id="contact-form" class="contact-form stagger-animation">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
@@ -484,28 +691,32 @@
             </form>
           </div>
         </div>
-      </div>
-    </section>
-    <footer>
+      </div>    </section>
+    <!-- Footer -->
+    <footer class="section-reveal" id="footer" style="display: block !important; visibility: visible !important;">
+      <div class="section-divider-skew"></div>
       <div class="footer-container">
-        <div class="footer-content">
+        <div class="footer-content stagger-animation">
           <div class="footer-left">
-            <p class="copyright">© 2025 Bongani Nyoni. All rights reserved.</p>
-          </div>
-          <div class="footer-right">            <div class="footer-links">
-              <a href="#profile">About</a>
-              <a href="#blog">Blog</a>
-              <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-social">
-              <a href="https://github.com/Falenyoni" target="_blank">
+            <p class="copyright">© <span id="copyright-year">2025</span> Bongani Nyoni. All rights reserved.</p>
+          </div>          <div class="footer-right">            <div class="footer-links">
+              <a href="#profile" class="animated-link">About</a>
+              <a href="#experience" class="animated-link">Skills & Expertise</a>
+              <a href="#blog" class="animated-link">Blog</a>
+              <a href="#contact" class="animated-link">Contact</a>
+              <a href="./assets/Bongani -Nyoni-CV.pdf" download class="animated-link">CV</a>
+            </div>            <div class="footer-social">
+              <a href="https://github.com/Falenyoni" target="_blank" class="social-link" aria-label="GitHub">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank">
+              <a href="https://www.linkedin.com/in/bonganinyoni/" target="_blank" class="social-link" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="mailto:b.nyoni1101@gmail.com">
+              <a href="mailto:b.nyoni1101@gmail.com" class="social-link" aria-label="Email">
                 <i class="far fa-envelope"></i>
+              </a>
+              <a href="./assets/Bongani -Nyoni-CV.pdf" download class="social-link cv-download" aria-label="Download CV">
+                <i class="fas fa-file-download"></i>
               </a>
             </div>
           </div>
@@ -514,8 +725,31 @@
     </footer>
     <button id="scroll-to-top" aria-label="Scroll to top">
       <img src="./assets/arrow-up.svg" alt="Scroll to top" />
-    </button>    <!-- Load EmailJS before our script -->
+    </button>    <!-- Third-party libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">    <!-- Custom scripts -->
+    <script src="assets/js/blog.js"></script>    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/modern-nav.js"></script>
+    <script src="assets/js/mobile.js"></script>    <script src="assets/js/enhanced-animations.js"></script>
+    <script src="assets/js/enhanced-mobile.js"></script>
+    <script src="assets/js/scroll-top.js"></script>
+    <script src="assets/js/footer-debug.js"></script>
     <script src="script.js"></script>
+      <!-- Initialize blog functionality -->
+    <script>
+      // Wait for both DOM and all scripts to be ready
+      window.addEventListener('load', function() {
+        console.log('Page fully loaded, checking for blogModule...');
+        if (window.blogModule) {
+          console.log('Blog module found, initializing...');
+          window.blogModule.initializeBlog();
+        } else {
+          console.error('Blog module not found!');
+        }
+      });
+    </script>
   </body>
 </html>

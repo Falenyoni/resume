@@ -1,0 +1,61 @@
+/* Footer visibility fixes */
+
+/* Override any potentially conflicting styles from other CSS files */
+html body footer,
+body > footer,
+#profile + #experience + #blog + #contact + footer,
+section + footer {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Ensure footer is always visible and properly spaced */
+footer {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  clear: both;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: 5rem !important;
+  padding-top: 3rem !important;
+  border-top: 1px solid var(--border);
+}
+
+/* Fix issues with the section-divider potentially hiding the footer */
+footer .section-divider-skew {
+  top: -50px;
+  height: 50px;
+  overflow: visible;
+}
+
+/* Remove any transforms that might be interfering with footer display */
+footer, 
+.footer-container, 
+.footer-content, 
+.footer-left, 
+.footer-right {
+  transform: none !important;
+}
+
+/* Make sure footer content is properly displayed */
+.footer-content {
+  padding: 2rem 0;
+  opacity: 1 !important;
+}
+
+/* Make sure footer links have proper styling */
+.footer-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Ensure that the footer's position doesn't get affected by other elements */
+@media (max-width: 768px) {
+  footer {
+    margin-top: 3rem !important;
+    padding: 2rem 0 !important;
+  }
+}
