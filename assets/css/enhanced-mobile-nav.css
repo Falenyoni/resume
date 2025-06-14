@@ -1,0 +1,110 @@
+/* Enhanced mobile navigation experience */
+
+/* Mobile menu improvements */
+#hamburger-nav .menu-links {
+  background: linear-gradient(to bottom right, var(--bg-secondary), var(--bg-primary));
+  backdrop-filter: blur(10px);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 85vh;
+  padding-bottom: calc(var(--spacing-lg) + var(--safe-area-inset-bottom));
+}
+
+/* Enhanced hamburger icon animation */
+.hamburger-icon span {
+  transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              opacity 0.25s ease;
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu animations */
+#hamburger-nav .menu-links.open ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+#hamburger-nav .menu-links.open ul li:nth-child(1) { animation-delay: 0.1s; }
+#hamburger-nav .menu-links.open ul li:nth-child(2) { animation-delay: 0.2s; }
+#hamburger-nav .menu-links.open ul li:nth-child(3) { animation-delay: 0.3s; }
+#hamburger-nav .menu-links.open ul li:nth-child(4) { animation-delay: 0.4s; }
+#hamburger-nav .menu-links.open ul li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Menu item hover effect */
+#hamburger-nav .menu-links ul li a {
+  position: relative;
+  padding: 15px 20px;
+  display: block;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#hamburger-nav .menu-links ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+#hamburger-nav .menu-links ul li a:hover::after,
+#hamburger-nav .menu-links ul li a:focus::after {
+  width: calc(100% - 40px);
+}
+
+/* Mobile nav appearance on scroll */
+.mobile-header-scrolled {
+  background: rgba(var(--bg-primary-rgb), 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state for touch interactions */
+.touch-active {
+  transform: scale(0.97);
+  opacity: 0.8;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better support for notched phones */
+@supports (padding: env(safe-area-inset-top)) {
+  #hamburger-nav .nav-container {
+    padding-top: calc(var(--spacing-sm) + env(safe-area-inset-top));
+    padding-right: calc(var(--spacing-md) + env(safe-area-inset-right));
+    padding-left: calc(var(--spacing-md) + env(safe-area-inset-left));
+  }
+  
+  #hamburger-nav .menu-links {
+    padding-top: calc(var(--spacing-lg) + env(safe-area-inset-top));
+    padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+  }
+}

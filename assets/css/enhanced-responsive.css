@@ -1,0 +1,148 @@
+/* Enhanced Mobile Responsiveness */
+
+/* Additional responsive breakpoints for more precise control */
+:root {
+  /* Existing variables from responsive.css are maintained */
+  
+  /* Enhanced touch target sizes for mobile */
+  --touch-target-size: 44px;
+  
+  /* Additional breakpoints */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  
+  /* Safe areas for notched devices */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
+/* Improved viewport height handling */
+body, html {
+  height: -webkit-fill-available;
+  overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
+}
+
+/* Use real viewport height on modern browsers */
+@supports (height: 100dvh) {
+  .hero-section {
+    height: 100dvh; /* dynamic viewport height */
+  }
+}
+
+/* Better tap targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  .btn, 
+  .nav-link, 
+  .social-link {
+    min-height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+  }
+  
+  /* Add padding for iOS safe areas */
+  .nav-container {
+    padding-top: calc(var(--spacing-sm) + var(--safe-area-inset-top));
+    padding-right: calc(var(--spacing-md) + var(--safe-area-inset-right));
+    padding-left: calc(var(--spacing-md) + var(--safe-area-inset-left));
+  }
+  
+  footer {
+    padding-bottom: calc(var(--spacing-md) + var(--safe-area-inset-bottom));
+  }
+}
+
+/* Enhanced animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhanced mobile navigation */
+@media (max-width: 768px) {
+  .menu-links {
+    padding-bottom: var(--safe-area-inset-bottom);
+  }
+  
+  /* Improve hamburger menu animation */
+  .hamburger-icon span {
+    transition: transform 0.25s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
+                opacity 0.2s ease;
+  }
+  
+  /* Fix for mobile form elements */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Enhanced scroll snap for section transitions on mobile */
+@media (max-width: 768px) {
+  .snap-container {
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .snap-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+/* Better mobile grid layout */
+@media (max-width: 576px) {
+  .skills-grid,
+  .blog-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .hero-content {
+    padding: var(--spacing-md) 0;
+  }
+  
+  #hamburger-nav .menu-links {
+    max-height: 85vh; /* Prevent overflow on landscape */
+  }
+}
+
+/* Device-specific fixes */
+/* iPhone notch area fix */
+@supports (padding: max(0px)) {
+  .nav-container,
+  .section-container {
+    padding-left: max(var(--spacing-md), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-md), env(safe-area-inset-right));
+  }
+}
+
+/* High-contrast mode support for accessibility */
+@media (forced-colors: active) {
+  .skill-progress,
+  .nav-progress-bar {
+    forced-color-adjust: none;
+    background-color: CanvasText;
+  }
+}

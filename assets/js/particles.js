@@ -1,0 +1,167 @@
+// Create particle effect for hero section
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSection = document.querySelector('#profile');
+  
+  if (!heroSection) return;
+  
+  // Create particle container
+  const particleContainer = document.createElement('div');
+  particleContainer.className = 'particle-container';
+  heroSection.appendChild(particleContainer);
+  
+  // Configuration
+  const particleCount = 30;
+  const particleColors = [
+    'rgba(59, 130, 246, 0.5)',   // Blue (accent color)
+    'rgba(99, 102, 241, 0.3)',    // Indigo
+    'rgba(79, 70, 229, 0.3)'      // Purple
+  ];
+  
+  // Create particles
+  for (let i = 0; i < particleCount; i++) {
+    createParticle(particleContainer, particleColors);
+  }
+  
+  // Handle mouse movement
+  let mouseX = 0;
+  let mouseY = 0;
+  
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Create occasional particle at mouse position with 5% chance
+    if (Math.random() < 0.05 && isMouseInHero(mouseX, mouseY)) {
+      createParticleAtMouse(particleContainer, mouseX, mouseY, particleColors);
+    }
+  });
+  
+  function isMouseInHero(x, y) {
+    const rect = heroSection.getBoundingClientRect();
+    return (
+      x >= rect.left &&
+      x <= rect.right &&
+      y >= rect.top &&
+      y <= rect.bottom
+    );
+  }
+});
+
+// Function to create a particle
+function createParticle(container, colors) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  
+  // Random properties
+  const size = Math.random() * 5 + 2;
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  
+  // Position (random within container)
+  const posX = Math.random() * 100;
+  const posY = Math.random() * 100;
+  
+  // Style
+  particle.style.width = `${size}px`;
+  particle.style.height = `${size}px`;
+  particle.style.backgroundColor = color;
+  particle.style.left = `${posX}%`;
+  particle.style.top = `${posY}%`;
+  particle.style.opacity = (Math.random() * 0.5 + 0.1).toString();
+  
+  // Animation
+  const duration = Math.random() * 20 + 10;
+  const delay = Math.random() * 5;
+  
+  particle.style.animation = `floatParticle ${duration}s linear ${delay}s infinite`;
+  
+  // Add to container
+  container.appendChild(particle);
+  
+  // Add keyframe animation dynamically
+  addFloatKeyframes();
+}
+
+// Create particle at mouse position
+function createParticleAtMouse(container, x, y, colors) {
+  const rect = container.getBoundingClientRect();
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  
+  // Properties
+  const size = Math.random() * 4 + 2;
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  
+  // Convert mouse position to relative position in container
+  const posX = ((x - rect.left) / rect.width) * 100;
+  const posY = ((y - rect.top) / rect.height) * 100;
+  
+  // Style
+  particle.style.width = `${size}px`;
+  particle.style.height = `${size}px`;
+  particle.style.backgroundColor = color;
+  particle.style.left = `${posX}%`;
+  particle.style.top = `${posY}%`;
+  particle.style.opacity = '0.7';
+  
+  // Animation to fade out and move up
+  particle.style.animation = 'fadeOutUp 2s forwards';
+  
+  // Add to container
+  container.appendChild(particle);
+  
+  // Remove after animation completes
+  setTimeout(() => {
+    if (particle.parentNode === container) {
+      container.removeChild(particle);
+    }
+  }, 2000);
+  
+  // Add keyframe animations if not already added
+  addFadeOutUpKeyframes();
+}
+
+// Function to add float keyframes
+function addFloatKeyframes() {
+  if (document.querySelector('#particleKeyframes')) return;
+  
+  const styleSheet = document.createElement('style');
+  styleSheet.id = 'particleKeyframes';
+  
+  styleSheet.textContent = `
+    @keyframes floatParticle {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(${Math.random() * 20 - 10}px, ${-Math.random() * 20}px) rotate(${Math.random() * 20}deg);
+      }
+      50% {
+        transform: translate(${Math.random() * 40 - 20}px, ${-Math.random() * 30}px) rotate(${Math.random() * 40}deg);
+      }
+      75% {
+        transform: translate(${Math.random() * 20 - 10}px, ${-Math.random() * 15}px) rotate(${Math.random() * 20}deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+    }
+    
+    @keyframes fadeOutUp {
+      0% {
+        opacity: 0.7;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  `;
+  
+  document.head.appendChild(styleSheet);
+}
+
+// Function to add fade out up keyframes
+function addFadeOutUpKeyframes() {
+  // Already included in addFloatKeyframes
+}
