@@ -7,8 +7,9 @@
     <title>Bongani Nyoni - Full Stack Developer</title>
     <link rel="icon" href="./assets/headshot.png" type="image/png" sizes="32x32" />
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" /><link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="assets/css/blog.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- EmailJS will be loaded at the bottom of the page for better performance -->
   </head>
@@ -378,31 +379,13 @@
             </div>
           </div>        </div>
       </div>
-    </section>
-    <section id="blog">
+    </section>    <section id="blog">
       <div class="section-container">
-        <h2 class="section-title">Latest Posts</h2>        <div class="posts-grid">
-          <article class="post-card featured">
-            <div class="post-content">
-              <div class="post-meta">
-                <span class="post-date">June 8, 2023</span>
-                <span class="post-category">AWS</span>
-              </div>
-              <h3 class="post-title">
-                <a href="https://medium.com/@falenyoni/setting-up-a-dual-stack-vpc-using-aws-cdk-in-c-fb2c3e7cd3ed" target="_blank">Setting Up a Dual-Stack VPC Using AWS CDK in C#</a>
-              </h3>
-              <p class="post-excerpt">
-                A step-by-step guide to setting up a dual-stack (IPv4 and IPv6) Virtual Private Cloud using AWS CDK with C#. Learn how to configure subnets, route tables, and internet gateways for both IPv4 and IPv6 connectivity.
-              </p>
-              <div class="post-tags">
-                <span class="tag">AWS</span>
-                <span class="tag">CDK</span>
-                <span class="tag">C#</span>
-                <span class="tag">VPC</span>
-                <span class="tag">IPv6</span>
-              </div>
-            </div>
-          </article>        </div>
+        <h2 class="section-title">Latest Posts</h2>
+        <div class="posts-grid">
+          <!-- Blog posts will be loaded dynamically from Markdown files -->
+          <div class="loading-posts">Loading posts...</div>
+        </div>
         <div class="section-footer">
           <a href="https://medium.com/@falenyoni" target="_blank" class="view-all-link">View on Medium <i class="fab fa-medium"></i></a>
         </div>
@@ -484,11 +467,10 @@
         </div>
       </div>
     </section>
-    <footer>
-      <div class="footer-container">
+    <footer>      <div class="footer-container">
         <div class="footer-content">
           <div class="footer-left">
-            <p class="copyright">© 2025 Bongani Nyoni. All rights reserved.</p>
+            <p class="copyright">© <span id="copyright-year">2025</span> Bongani Nyoni. All rights reserved.</p>
           </div>
           <div class="footer-right">            <div class="footer-links">
               <a href="#profile">About</a>
@@ -512,8 +494,27 @@
     </footer>
     <button id="scroll-to-top" aria-label="Scroll to top">
       <img src="./assets/arrow-up.svg" alt="Scroll to top" />
-    </button>    <!-- Load EmailJS before our script -->
+    </button>    <!-- Third-party libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- Custom scripts -->
+    <script src="assets/js/blog.js"></script>
     <script src="script.js"></script>
+      <!-- Initialize blog functionality -->
+    <script>
+      // Wait for both DOM and all scripts to be ready
+      window.addEventListener('load', function() {
+        console.log('Page fully loaded, checking for blogModule...');
+        if (window.blogModule) {
+          console.log('Blog module found, initializing...');
+          window.blogModule.initializeBlog();
+        } else {
+          console.error('Blog module not found!');
+        }
+      });
+    </script>
   </body>
 </html>

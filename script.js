@@ -269,6 +269,17 @@ function updateExperienceYears() {
   console.log(`Experience updated: ${yearsOfExperience}+ years`);
 }
 
+// Update copyright year in the footer
+function updateCopyrightYear() {
+  const copyrightElement = document.getElementById("copyright-year");
+  if (!copyrightElement) return;
+  
+  const currentYear = new Date().getFullYear();
+  copyrightElement.textContent = currentYear;
+  
+  console.log(`Copyright year updated to: ${currentYear}`);
+}
+
 // Initialize everything when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize theme
@@ -285,6 +296,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Update experience years
   updateExperienceYears();
+  
+  // Update copyright year
+  updateCopyrightYear();
   
   console.log('All scripts initialized successfully');
 });
