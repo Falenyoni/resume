@@ -237,6 +237,38 @@ function handleThemeToggleClick(event) {
   toggleTheme();
 }
 
+// Calculate and update years of experience
+function updateExperienceYears() {
+  const experienceElement = document.getElementById("experience-years");
+  if (!experienceElement) return;
+  
+  // Set career start date to November 2014
+  const careerStartDate = new Date('2014-11-01');
+  const currentDate = new Date();
+  
+  // Calculate years of experience
+  let yearsOfExperience = currentDate.getFullYear() - careerStartDate.getFullYear();
+  
+  // Adjust if we haven't reached the anniversary month yet this year
+  if (
+    currentDate.getMonth() < careerStartDate.getMonth() || 
+    (currentDate.getMonth() === careerStartDate.getMonth() && 
+     currentDate.getDate() < careerStartDate.getDate())
+  ) {
+    yearsOfExperience--;
+  }
+    // Update the DOM elements
+  experienceElement.textContent = yearsOfExperience + '+ years';
+  
+  // Also update the experience years in the bio section if it exists
+  const bioExperienceElement = document.getElementById("bio-experience-years");
+  if (bioExperienceElement) {
+    bioExperienceElement.textContent = yearsOfExperience;
+  }
+  
+  console.log(`Experience updated: ${yearsOfExperience}+ years`);
+}
+
 // Initialize everything when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize theme
@@ -250,6 +282,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Setup scroll to top button
   setupScrollToTop();
+  
+  // Update experience years
+  updateExperienceYears();
   
   console.log('All scripts initialized successfully');
 });
