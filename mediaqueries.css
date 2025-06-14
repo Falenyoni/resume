@@ -439,6 +439,17 @@ footer {
   }
 }
 
+/* CV download button responsive styles */
+@media only screen and (max-width: 600px) {
+  .social-link.cv-download::after {
+    display: none; /* Hide tooltip on mobile */
+  }
+  
+  .social-links .cv-download {
+    margin-top: 10px; /* Add some spacing if the buttons wrap */
+  }
+}
+
 @media screen and (max-width: 480px) {
   #contact {
     padding: 2rem 0;

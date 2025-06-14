@@ -48,7 +48,14 @@
 
 ## Summary of Portfolio Website Enhancements
 
-### 1. Added a New Blog Post on Modern CSS Features
+### 1. Added CV Download Functionality
+
+- Added CV download button in social links section with animated hover effects
+- Implemented download links in both desktop and mobile navigation menus
+- Added CV link in the footer for easy access
+- Ensured mobile-friendly design with responsive styling
+
+### 2. Added a New Blog Post on Modern CSS Features
 
 Created `modern-css-features.md` with comprehensive content about modern CSS features including:
 - CSS Custom Properties (Variables)

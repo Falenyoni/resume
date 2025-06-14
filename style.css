@@ -415,6 +415,74 @@ body {
   opacity: 1;
 }
 
+/* CV download button styles */
+.social-link.cv-download {
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-link.cv-download:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Remove the background animation effect */
+
+.social-link.cv-download i {
+  position: relative;
+}
+
+/* Add a tooltip on hover */
+.social-link.cv-download::after {
+  content: "Download CV";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+}
+
+.social-link.cv-download:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: -35px;
+}
+
+/* For the navigation link */
+.nav-links li a[download] {
+  position: relative;
+  font-weight: 600;
+}
+
+.nav-links li a[download]::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a[download]:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 /* Combined profile and about section styles */
 .about-containers {
   display: flex;
