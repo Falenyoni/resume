@@ -192,9 +192,8 @@ async function renderBlogPosts(container) {
         <div class="post-meta">
           <span class="post-date">${post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
           <span class="post-category">${post.category}</span>
-        </div>
-        <h3 class="post-title">
-          <a href="/blog/${post.slug}" data-blog-slug="${post.slug}">${post.title}</a>
+        </div>        <h3 class="post-title">
+          <a href="/blog/${post.slug}" data-blog-slug="${post.slug}" title="Open in new window">${post.title} <i class="fas fa-external-link-alt" aria-hidden="true" style="font-size: 0.7em; vertical-align: super;"></i></a>
         </h3>
         <p class="post-excerpt">${post.excerpt}</p>
         <div class="post-tags">
@@ -210,13 +209,17 @@ async function renderBlogPosts(container) {
         </div>
       </div>
     `;
-    
-    // Add click handler to load individual post
+      // Add click handler to open blog post in new window
     const titleLink = article.querySelector('.post-title a');
     titleLink.addEventListener('click', function(e) {
       e.preventDefault();
       const slug = this.getAttribute('data-blog-slug');
-      showBlogPost(slug);
+      
+      // Create full URL for the blog post
+      const blogUrl = `${window.location.origin}/blog/${slug}`;
+      
+      // Open the blog post in a new window
+      window.open(blogUrl, '_blank');
     });
     
     // Add share button handler
