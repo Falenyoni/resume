@@ -94,14 +94,8 @@
   .profile-bio {
     text-align: center;
   }
-  
-  .stat-card {
-    padding: 1rem;
-  }
-  
-  .stat-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+
+  .hero-stats {
+    margin-top: 1.5rem;
   }
 }

@@ -68,24 +68,18 @@ function createParticle(container, colors) {
   particle.style.top = `${posY}%`;
   particle.style.opacity = (Math.random() * 0.5 + 0.1).toString();
   
-  // Animation
-  const duration = Math.random() * 20 + 10;
-  const delay = Math.random() * 5;
-  
-  particle.style.animation = `floatParticle ${duration}s linear ${delay}s infinite`;
+  // Animation is now handled by CSS classes
+  // We'll use nth-child selectors in CSS to apply different animations
   
   // Add to container
   container.appendChild(particle);
-  
-  // Add keyframe animation dynamically
-  addFloatKeyframes();
 }
 
 // Create particle at mouse position
 function createParticleAtMouse(container, x, y, colors) {
   const rect = container.getBoundingClientRect();
   const particle = document.createElement('div');
-  particle.className = 'particle';
+  particle.className = 'particle mouse-particle';
   
   // Properties
   const size = Math.random() * 4 + 2;
@@ -103,8 +97,10 @@ function createParticleAtMouse(container, x, y, colors) {
   particle.style.top = `${posY}%`;
   particle.style.opacity = '0.7';
   
-  // Animation to fade out and move up
-  particle.style.animation = 'fadeOutUp 2s forwards';
+  // Animation is now handled via the class
+  particle.style.animationName = 'fadeOutUp';
+  particle.style.animationDuration = '2s';
+  particle.style.animationFillMode = 'forwards';
   
   // Add to container
   container.appendChild(particle);
@@ -115,53 +111,13 @@ function createParticleAtMouse(container, x, y, colors) {
       container.removeChild(particle);
     }
   }, 2000);
-  
-  // Add keyframe animations if not already added
-  addFadeOutUpKeyframes();
 }
 
-// Function to add float keyframes
+// Function to add float keyframes - now just checks if they exist
 function addFloatKeyframes() {
-  if (document.querySelector('#particleKeyframes')) return;
-  
-  const styleSheet = document.createElement('style');
-  styleSheet.id = 'particleKeyframes';
-  
-  styleSheet.textContent = `
-    @keyframes floatParticle {
-      0% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-      25% {
-        transform: translate(${Math.random() * 20 - 10}px, ${-Math.random() * 20}px) rotate(${Math.random() * 20}deg);
-      }
-      50% {
-        transform: translate(${Math.random() * 40 - 20}px, ${-Math.random() * 30}px) rotate(${Math.random() * 40}deg);
-      }
-      75% {
-        transform: translate(${Math.random() * 20 - 10}px, ${-Math.random() * 15}px) rotate(${Math.random() * 20}deg);
-      }
-      100% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-    }
-    
-    @keyframes fadeOutUp {
-      0% {
-        opacity: 0.7;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-    }
-  `;
-  
-  document.head.appendChild(styleSheet);
+  // No longer dynamically creates keyframes
+  // These are now pre-defined in the CSS file
+  return;
 }
 
-// Function to add fade out up keyframes
-function addFadeOutUpKeyframes() {
-  // Already included in addFloatKeyframes
-}
+// No longer needed as animations are now in CSS
