@@ -1,0 +1,75 @@
+/* Fix for stat cards on mobile devices */
+
+/* Improve layout of stat cards on mobile */
+@media (max-width: 480px) {
+  /* Adjust the layout of stat cards for mobile */
+  .stat-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Make stat card more compact */
+  .stat-card {
+    padding: 1.25rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    height: auto;
+  }
+  
+  /* Make icons smaller on mobile */
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  /* Ensure content wraps properly */
+  .stat-content {
+    min-width: 0; /* Allow flex items to shrink below content size */
+    flex: 1;
+  }
+  
+  /* Adjust stat value font size */
+  .stat-value {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    word-break: break-word; /* Allow long values to break */
+  }
+  
+  /* Make description text smaller and ensure it wraps */
+  .stat-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Fix for extra small devices */
+@media (max-width: 360px) {
+  .stat-card {
+    padding: 1rem 0.75rem;
+  }
+  
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .stat-content h3 {
+    font-size: 0.9rem;
+  }
+  
+  .stat-content p {
+    font-size: 0.75rem;
+  }
+}

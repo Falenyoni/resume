@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * Enhanced section transitions using Intersection Observer
+ * With fallback for environments where observers might be restricted
  */
 function initEnhancedSectionTransitions() {
   // Make sure footer is always visible
@@ -25,49 +26,70 @@ function initEnhancedSectionTransitions() {
   // Set up section reveal animation
   const revealSections = document.querySelectorAll('.section-container, .section-reveal:not(footer)');
   
-  // Create observer for section reveal
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, 
-    { 
-      threshold: 0.15,
-      rootMargin: '0px 0px -10% 0px' 
-    }
-  );
+  // Check if we should use a fallback approach (for S3 or restricted environments)
+  const useObserverFallback = window.location.hostname.includes('s3.amazonaws.com') || 
+                             window.location.hostname.includes('cloudfront.net');
   
-  // Apply observer to sections
-  revealSections.forEach(section => {
-    sectionObserver.observe(section);
-  });
-  
+  if (useObserverFallback) {
+    // Fallback: Add revealed class to all sections immediately
+    console.log('Using animation fallback for S3/CloudFront environment');
+    revealSections.forEach(section => {
+      section.classList.add('revealed');
+    });
+  } else {
+    // Standard approach: Use Intersection Observer
+    // Create observer for section reveal
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, 
+      { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px' 
+      }
+    );
+    
+    // Apply observer to sections
+    revealSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+  }
   // Set up staggered animations for elements inside sections
   const staggerContainers = document.querySelectorAll('.stagger-animation');
   
-  // Create observer for staggered animations
-  const staggerObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          staggerObserver.unobserve(entry.target);
-        }
-      });
-    }, 
-    { 
-      threshold: 0.1,
-      rootMargin: '0px 0px -15% 0px' 
-    }
-  );
-  
-  // Apply observer to stagger containers
-  staggerContainers.forEach(container => {
-    staggerObserver.observe(container);
-  });
+  // Reuse the same fallback check
+  if (useObserverFallback) {
+    // Fallback: Add revealed class to all stagger containers immediately
+    staggerContainers.forEach(container => {
+      container.classList.add('revealed');
+    });
+  } else {
+    // Standard approach: Use Intersection Observer
+    // Create observer for staggered animations
+    const staggerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      }, 
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -15% 0px' 
+      }
+    );
+    
+    // Apply observer to stagger containers
+    staggerContainers.forEach(container => {
+      staggerObserver.observe(container);
+    });
+  }
   
   // Apply parallax effect to backgrounds
   const parallaxElements = document.querySelectorAll('.parallax-bg');
@@ -139,46 +161,64 @@ function enhanceTouchLinks() {
 
 /**
  * Initialize animated statistics counters
+ * With fallback for S3/CloudFront environments
  */
 function initStatCounters() {
   const statValueElements = document.querySelectorAll('.stat-value');
   
-  // Create observer for stat counters
-  const statObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const element = entry.target;
-          const targetValue = parseInt(element.textContent);
-          
-          // Don't animate if it contains non-numeric content
-          if (isNaN(targetValue)) return;
-          
-          // Animate from 0 to target value
-          let currentValue = 0;
-          const duration = 2000; // 2 seconds
-          const increment = Math.ceil(targetValue / (duration / 16)); // 60fps
-          
-          const counter = setInterval(() => {
-            currentValue += increment;
-            
-            if (currentValue >= targetValue) {
-              element.textContent = targetValue + (element.textContent.includes('+') ? '+' : '');
-              clearInterval(counter);
-            } else {
-              element.textContent = currentValue;
-            }
-          }, 16);
-          
-          statObserver.unobserve(element);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
+  // Check if we should use a fallback approach (for S3 or restricted environments)
+  const useObserverFallback = window.location.hostname.includes('s3.amazonaws.com') || 
+                             window.location.hostname.includes('cloudfront.net');
   
-  // Apply observer to stat counters
-  statValueElements.forEach(element => {
-    statObserver.observe(element);
-  });
+  // Function to animate a counter
+  function animateCounter(element) {
+    const targetValue = parseInt(element.textContent);
+    
+    // Don't animate if it contains non-numeric content
+    if (isNaN(targetValue)) return;
+    
+    // Animate from 0 to target value
+    let currentValue = 0;
+    const duration = 2000; // 2 seconds
+    const increment = Math.ceil(targetValue / (duration / 16)); // 60fps
+    
+    const counter = setInterval(() => {
+      currentValue += increment;
+      
+      if (currentValue >= targetValue) {
+        element.textContent = targetValue + (element.textContent.includes('+') ? '+' : '');
+        clearInterval(counter);
+      } else {
+        element.textContent = currentValue;
+      }
+    }, 16);
+  }
+  
+  if (useObserverFallback) {
+    // Fallback approach: Simply animate all counters after a short delay
+    setTimeout(() => {
+      statValueElements.forEach(element => {
+        animateCounter(element);
+      });
+    }, 500);
+  } else {
+    // Standard approach: Use Intersection Observer
+    // Create observer for stat counters
+    const statObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            statObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    
+    // Apply observer to stat counters
+    statValueElements.forEach(element => {
+      statObserver.observe(element);
+    });
+  }
 }
