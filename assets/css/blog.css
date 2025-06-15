@@ -4,6 +4,17 @@
   padding: 2rem 0;
 }
 
+/* External link icon styling */
+.post-title a .fa-external-link-alt {
+  opacity: 0.7;
+  margin-left: 0.3rem;
+  transition: opacity 0.2s ease;
+}
+
+.post-title a:hover .fa-external-link-alt {
+  opacity: 1;
+}
+
 .blog-post-content {
   max-width: 800px;
   margin: 0 auto;
