@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Spam Protection Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .test-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .test-input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .test-button {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .result {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .valid {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .invalid {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .test-examples {
+        background: #e9ecef;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+      .example {
+        margin-bottom: 10px;
+        font-family: monospace;
+        background: white;
+        padding: 5px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🛡️ Contact Form Spam Protection Test</h1>
+
+    <div class="test-examples">
+      <h3>Test these spam examples (should be blocked):</h3>
+      <div class="example">
+        asasadadadadadadadadadadadadadadadadadadadadadadadada
+      </div>
+      <div class="example">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+      <div class="example">qwertyuiopasdfghjklzxcvbnm</div>
+      <div class="example">dadadadadadadadadadada</div>
+      <div class="example">EpUHmuqQxMrnRwgEpUHmuqQxMrnRwg</div>
+      <div class="example">a</div>
+      <div class="example">hello world</div>
+
+      <h3>Valid message examples (should pass):</h3>
+      <div class="example">
+        Hello, I am interested in your services and would like to discuss a
+        project.
+      </div>
+      <div class="example">
+        Hi there! I saw your portfolio and would love to connect about potential
+        opportunities.
+      </div>
+      <div class="example">
+        Great work on your website! I have a question about web development.
+      </div>
+    </div>
+
+    <div class="test-container">
+      <h3>Test Message Validation</h3>
+      <input
+        type="text"
+        id="testName"
+        class="test-input"
+        placeholder="Enter name..."
+        value="John Doe"
+      />
+      <input
+        type="email"
+        id="testEmail"
+        class="test-input"
+        placeholder="Enter email..."
+        value="john@example.com"
+      />
+      <textarea
+        id="testMessage"
+        class="test-input"
+        rows="4"
+        placeholder="Enter message to test..."
+      ></textarea>
+      <button onclick="testMessage()" class="test-button">Test Message</button>
+      <div id="testResult" class="result" style="display: none"></div>
+    </div>
+
+    <script>
+      // Simplified version of the spam detection for testing
+      class SpamTester {
+        constructor() {
+          this.spamPatterns = [/(.)\1{3,}/g, /(.{2,4})\1{4,}/gi];
+        }
+
+        checkRepetitiveContent(text) {
+          const cleanText = text.toLowerCase().replace(/\s/g, "");
+
+          const patterns = [
+            /(.{1,3})\1{6,}/g,
+            /(.{1,2})\1{8,}/g,
+            /(..)\1{5,}/g,
+          ];
+
+          for (const pattern of patterns) {
+            if (pattern.test(cleanText)) {
+              return {
+                isValid: false,
+                message: "Repetitive patterns detected",
+              };
+            }
+          }
+
+          const charCount = {};
+          for (const char of cleanText) {
+            if (char.match(/[a-z]/)) {
+              charCount[char] = (charCount[char] || 0) + 1;
+            }
+          }
+
+          const totalChars = Object.values(charCount).reduce(
+            (a, b) => a + b,
+            0
+          );
+          for (const [char, count] of Object.entries(charCount)) {
+            if (count / totalChars > 0.4) {
+              return {
+                isValid: false,
+                message: "Excessive character repetition detected",
+              };
+            }
+          }
+
+          return { isValid: true };
+        }
+
+        checkMessageQuality(message) {
+          const cleanMessage = message.trim().toLowerCase();
+
+          const words = cleanMessage
+            .split(/\s+/)
+            .filter((word) => word.length > 0);
+          if (words.length < 3) {
+            return {
+              isValid: false,
+              message: "Need at least 3 words",
+            };
+          }
+
+          const vowels = cleanMessage.match(/[aeiou]/g) || [];
+          const consonants =
+            cleanMessage.match(/[bcdfghjklmnpqrstvwxyz]/g) || [];
+
+          if (vowels.length === 0) {
+            return {
+              isValid: false,
+              message: "No vowels detected",
+            };
+          }
+
+          const vowelRatio =
+            vowels.length / (vowels.length + consonants.length);
+          if (vowelRatio < 0.15 || vowelRatio > 0.7) {
+            return {
+              isValid: false,
+              message: "Unnatural vowel distribution",
+            };
+          }
+
+          const keyboardPatterns = [
+            /qwerty|asdf|zxcv|123456|abcdef/gi,
+            /qwertyuiop|asdfghjkl|zxcvbnm/gi,
+          ];
+
+          for (const pattern of keyboardPatterns) {
+            if (pattern.test(cleanMessage)) {
+              return {
+                isValid: false,
+                message: "Keyboard pattern detected",
+              };
+            }
+          }
+
+          const alternatingPattern = /^(.)(.)(\1\2){3,}/;
+          if (alternatingPattern.test(cleanMessage.replace(/\s/g, ""))) {
+            return {
+              isValid: false,
+              message: "Alternating pattern detected",
+            };
+          }
+
+          const avgWordLength =
+            words.reduce((sum, word) => sum + word.length, 0) / words.length;
+          if (avgWordLength < 2 || avgWordLength > 15) {
+            return {
+              isValid: false,
+              message: "Unnatural word length distribution",
+            };
+          }
+
+          return { isValid: true };
+        }
+
+        testMessage(message, name = "Test User") {
+          if (!message || message.trim().length < 20) {
+            return {
+              isValid: false,
+              message: "Message too short (minimum 20 characters)",
+            };
+          }
+
+          for (const pattern of this.spamPatterns) {
+            if (pattern.test(message)) {
+              return {
+                isValid: false,
+                message: "Spam pattern detected",
+              };
+            }
+          }
+
+          const repetitiveCheck = this.checkRepetitiveContent(message);
+          if (!repetitiveCheck.isValid) {
+            return repetitiveCheck;
+          }
+
+          const qualityCheck = this.checkMessageQuality(message);
+          if (!qualityCheck.isValid) {
+            return qualityCheck;
+          }
+
+          return { isValid: true, message: "Message is valid!" };
+        }
+      }
+
+      const spamTester = new SpamTester();
+
+      function testMessage() {
+        const name = document.getElementById("testName").value;
+        const email = document.getElementById("testEmail").value;
+        const message = document.getElementById("testMessage").value;
+        const resultDiv = document.getElementById("testResult");
+
+        const result = spamTester.testMessage(message, name);
+
+        resultDiv.style.display = "block";
+        resultDiv.className =
+          "result " + (result.isValid ? "valid" : "invalid");
+        resultDiv.textContent = result.message;
+      }
+
+      // Test on page load with some examples
+      window.onload = function () {
+        const examples = [
+          "asasadadadadadadadadadadadadadadadadadadadadadadadada",
+          "Hello, I am interested in your services and would like to discuss a project.",
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "qwertyuiopasdfghjklzxcvbnm",
+          "This is a normal message that should pass validation easily.",
+        ];
+
+        console.log("=== Spam Protection Test Results ===");
+        examples.forEach((example, index) => {
+          const result = spamTester.testMessage(example);
+          console.log(
+            `${index + 1}. "${example.substring(0, 30)}${
+              example.length > 30 ? "..." : ""
+            }"`
+          );
+          console.log(
+            `   Result: ${result.isValid ? "VALID" : "BLOCKED"} - ${
+              result.message
+            }`
+          );
+          console.log("");
+        });
+      };
+    </script>
+  </body>
+</html>
